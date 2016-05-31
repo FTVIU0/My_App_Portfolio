@@ -4,7 +4,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
+
+import com.nlte.myappportfolio.utils.ToastShowUtil;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     private Button btnPopularMmovies;
@@ -37,22 +38,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn_popular_movies:
-                Toast.makeText(this, "This button will launch my popular_movies app!", Toast.LENGTH_SHORT).show();
+                ToastShowUtil.show(this, "This button will launch my popular_movies app!");
                 break;
             case R.id.btn_stock_hawk:
-                Toast.makeText(this, "This button will launch my stock_hawk app!", Toast.LENGTH_SHORT).show();
+                ToastShowUtil.show(this, "This button will launch my stock_hawk app!");
                 break;
             case R.id.btn_build_bigger:
-                Toast.makeText(this, "This button will launch my build_bigger app!", Toast.LENGTH_SHORT).show();
+                ToastShowUtil.show(this, "This button will launch my build_bigger app!");
                 break;
             case R.id.btn_make_your_app_material:
-                Toast.makeText(this, "This button will launch my make_your_app_material app!", Toast.LENGTH_SHORT).show();
+                ToastShowUtil.show(this, "This button will launch my make_your_app_material app!");
                 break;
             case R.id.btn_go_ubiquitous:
-                Toast.makeText(this, "This button will launch my go_ubiquitousapp!", Toast.LENGTH_SHORT).show();
+                ToastShowUtil.show(this, "This button will launch my go_ubiquitous app!");
                 break;
             case R.id.btn_capstone:
-                Toast.makeText(this, "This button will launch my capstone app!", Toast.LENGTH_SHORT).show();
+                ToastShowUtil.show(this, "This button will launch my capstone app!");
                 break;
 
         }
