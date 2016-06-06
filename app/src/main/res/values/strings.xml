@@ -11,4 +11,6 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="pop_movies_title_bar">Pop Movies</string>
+    <string name="movies_title_default">Thunderbal</string>
+    <string name="vote_avg_default">9.0</string>
 </resources>

@@ -1,27 +1,18 @@
 package com.nlte.myappportfolio;
 
+import android.test.AndroidTestCase;
+
 import com.nlte.myappportfolio.bean.MoviesSetBean;
 import com.nlte.myappportfolio.utils.LoadMovesDate;
 
-import org.junit.Test;
-
 import java.io.IOException;
 
-import static org.junit.Assert.*;
-
 /**
- * To work on unit tests, switch the Test Artifact in the Build Variants view.
+ * NLTE
+ * 2016/6/5 0005 19:22
  */
-public class ExampleUnitTest {
-    @Test
-    public void addition_isCorrect() throws Exception {
-        assertEquals(4, 2 + 2);
-    }
-    @Test
-    public void testCasr(){
-        assertEquals(4, 2 + 2);
-    }
-    @Test
+public class TestLoadMovesDate extends AndroidTestCase{
+
     public void testGetPopMoves(){
         try {
             MoviesSetBean popMovies = LoadMovesDate.getPopMovies();
@@ -30,4 +21,8 @@ public class ExampleUnitTest {
             e.printStackTrace();
         }
     }
+    public void testCasr(){
+        assertEquals(4, 2 + 2);
+    }
+
 }

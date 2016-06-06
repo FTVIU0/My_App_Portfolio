@@ -1,5 +1,6 @@
 package com.nlte.myappportfolio;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -14,6 +15,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnMakeYourAppMaterial;
     private Button btnGoUbiquitous;
     private Button btnCapstone;
+
+    private Intent mIntent = new Intent();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +42,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn_popular_movies:
-                ToastShowUtil.show(this, "This button will launch my popular_movies app!");
+                mIntent.setClass(this, MoviesSummaryActivity.class);
+                startActivity(mIntent);
                 break;
             case R.id.btn_stock_hawk:
                 ToastShowUtil.show(this, "This button will launch my stock_hawk app!");
@@ -56,7 +60,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_capstone:
                 ToastShowUtil.show(this, "This button will launch my capstone app!");
                 break;
-
+            default:
+                break;
         }
     }
 }

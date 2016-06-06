@@ -9,7 +9,10 @@ public class MoviesSummaryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movies_summary);
-
-
+        if (savedInstanceState == null){
+            getFragmentManager().beginTransaction()
+                    .add(R.id.movies_content, new MoviesSummaryFragment())
+                    .commit();
+        }
     }
 }
