@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:ptr="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
-
-    <GridView
-        android:id="@+id/gv_movies_summary"
+    <com.handmark.pulltorefresh.library.PullToRefreshGridView
+        android:id="@+id/ptr_gv_movies"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:numColumns="3"
         android:verticalSpacing="45dp"
-        android:columnWidth="0dp">
-    </GridView>
+        android:columnWidth="0dp"
+        ptr:ptrMode="both"
+        ptr:ptrHeaderTextColor = "@color/colorAccent"
+        ptr:ptrAnimationStyle="flip"
+        ptr:ptrScrollingWhileRefreshingEnabled="true">
+
+    </com.handmark.pulltorefresh.library.PullToRefreshGridView>
 
 </LinearLayout>

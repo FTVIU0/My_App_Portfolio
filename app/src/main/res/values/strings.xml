@@ -13,4 +13,5 @@
     <string name="pop_movies_title_bar">Pop Movies</string>
     <string name="movies_title_default">Thunderbal</string>
     <string name="vote_avg_default">9.0</string>
+    <string name="refresh">下拉刷新</string>
 </resources>
