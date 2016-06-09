@@ -14,4 +14,19 @@
     <string name="movies_title_default">Thunderbal</string>
     <string name="vote_avg_default">9.0</string>
     <string name="refresh">下拉刷新</string>
+    <string name="movie_overview">　　A ticking-time-bomb insomniac and a slippery soap salesman channel primal male aggression into a shocking new form of therapy. Their concept catches on, with underground "fight clubs" forming in every town, until an eccentric gets in the way and ignites an out-of-control spiral toward oblivion.</string>
+    <string name="movie_tagline">No one comes up here without a damn good reason.</string>
+    <string name="movie_title">The Hateful Eight</string>
+    <string name="movie_genres">Crime Drama Mystery Western</string>
+    <string name="movie_release_data">2015-12-25</string>
+    <string name="tv_overview">剧情简介：</string>
+    <string name="tv_tagline">口号：</string>
+    <string name="tv_release_date">上映日期：</string>
+    <string name="tv_genres">类型：</string>
+    <string name="tv_title">片名：</string>
+
+    <string-array name="spinnername">
+        <item>最受欢迎</item>
+        <item>评分最高</item>
+    </string-array>
 </resources>

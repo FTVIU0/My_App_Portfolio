@@ -3,7 +3,6 @@ package com.nlte.myappportfolio;
 import android.test.AndroidTestCase;
 
 import com.nlte.myappportfolio.bean.MoviesSetBean;
-import com.nlte.myappportfolio.utils.LoadMovesDate;
 
 import java.io.IOException;
 

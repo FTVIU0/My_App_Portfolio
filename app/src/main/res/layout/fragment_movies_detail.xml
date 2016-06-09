@@ -1,0 +1,189 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context="com.nlte.myappportfolio.MoviesDetailFragment">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/rel_movie_detail_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:visibility="invisible">
+
+            <TextView
+                android:text="@string/movie_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/textView4"
+                android:layout_toRightOf="@+id/textView4"
+                android:layout_toEndOf="@+id/textView4"
+                android:id="@+id/tv_movie_title"
+                android:textColor="#ff009688"/>
+
+            <TextView
+                android:text="@string/movie_genres"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/textView7"
+                android:layout_toRightOf="@+id/textView7"
+                android:layout_toEndOf="@+id/textView7"
+                android:id="@+id/tv_movie_genres"
+                android:textColor="#ff009688"/>
+
+
+            <TextView
+                android:text="@string/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="23dp"
+                android:id="@+id/textView4"
+                android:layout_alignTop="@+id/iv_movie_poster"
+                android:layout_toRightOf="@+id/iv_movie_poster"
+                android:layout_toEndOf="@+id/iv_movie_poster"/>
+
+            <TextView
+                android:text="@string/tv_genres"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:id="@+id/textView7"
+                android:layout_below="@+id/tv_movie_title"
+                android:layout_alignLeft="@+id/textView4"
+                android:layout_alignStart="@+id/textView4"/>
+
+            <TextView
+                android:text="@string/tv_release_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView7"
+                android:layout_alignLeft="@+id/textView7"
+                android:layout_alignStart="@+id/textView7"
+                android:layout_marginTop="30dp"
+                android:id="@+id/textView10"/>
+
+            <TextView
+                android:text="@string/movie_release_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/textView10"
+                android:layout_toRightOf="@+id/textView10"
+                android:layout_toEndOf="@+id/textView10"
+                android:id="@+id/tv_movie_release_date"
+                android:textColor="#ff009688"/>
+
+            <TextView
+                android:text="@string/tv_tagline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_below="@+id/textView10"
+                android:layout_alignLeft="@+id/textView10"
+                android:layout_alignStart="@+id/textView10"
+                android:id="@+id/textView"/>
+
+
+            <ImageView
+                android:src="@drawable/movie_poster_default"
+                android:layout_width="140dp"
+                android:layout_height="210dp"
+                android:id="@+id/iv_movie_poster"
+                android:layout_marginTop="10dp"
+                android:layout_alignLeft="@+id/view"
+                android:layout_alignStart="@+id/view"/>
+
+            <LinearLayout
+                android:id="@+id/lly_star"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="12dp"
+                android:layout_marginLeft="15dp"
+                android:layout_below="@+id/iv_movie_poster"
+                android:layout_alignLeft="@+id/iv_movie_poster"
+                android:layout_alignStart="@+id/iv_movie_poster">
+
+                <RatingBar
+                    android:id="@+id/rab_movies_star"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/Base.Widget.AppCompat.RatingBar.Small"
+                    android:isIndicator="true"
+                    android:numStars="5"
+                    android:rating="2.5"
+                    android:stepSize="0.1"/>
+
+                <TextView
+                    android:id="@+id/tv_vote_average"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorAccent"
+                    android:text="@string/vote_avg_default"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="@color/colorAccent"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:id="@+id/view"
+                android:layout_below="@+id/lly_star"
+                android:layout_centerHorizontal="true"/>
+
+            <TextView
+                android:text="@string/tv_overview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView16"
+                android:layout_marginTop="23dp"
+                android:layout_below="@+id/view"
+                android:layout_alignLeft="@+id/iv_movie_poster"
+                android:layout_alignStart="@+id/iv_movie_poster"/>
+
+            <TextView
+                android:text="@string/movie_overview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_movie_overview"
+                android:layout_marginTop="18dp"
+                android:layout_below="@+id/textView16"
+                android:layout_alignLeft="@+id/textView16"
+                android:layout_alignStart="@+id/textView16"
+                android:layout_marginRight="10dp"
+                android:lineSpacingMultiplier="1.4"
+                android:textColor="#ff009688"/>
+
+            <TextView
+                android:text="@string/movie_tagline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_movie_tagline"
+                android:textColor="#ff009688"
+                android:layout_alignBaseline="@+id/textView"
+                android:layout_alignBottom="@+id/textView"
+                android:layout_toRightOf="@+id/textView"
+                android:layout_toEndOf="@+id/textView"/>
+
+        </RelativeLayout>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressBar"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="130dp"/>
+
+    </FrameLayout>
+
+
+</ScrollView>

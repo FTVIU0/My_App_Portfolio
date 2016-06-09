@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="wrap_content"
-              android:layout_height="wrap_content">
-    <ImageButton
-        android:id="@+id/ib_movies_poster"
+              android:layout_height="wrap_content"
+    android:clickable="false">
+    <ImageView
+        android:id="@+id/iv_movies_poster"
         android:layout_width="100dp"
         android:layout_height="150dp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         android:paddingTop="10dp"
-        android:background="@android:color/transparent"
         android:layout_centerHorizontal="true"
         android:src="@drawable/movie_poster_default"
-        android:scaleType="centerCrop" />
+        android:scaleType="centerCrop"/>
+
     <TextView
         android:id="@+id/tv_movies_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/ib_movies_poster"
+        android:layout_below="@id/iv_movies_poster"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
         android:gravity="center"
@@ -32,7 +33,7 @@
         android:gravity="center"
         android:layout_centerHorizontal="true"
         android:paddingTop="32dp"
-        android:layout_below="@id/ib_movies_poster">
+        android:layout_below="@id/iv_movies_poster">
 
         <RatingBar
             android:id="@+id/rab_movies_star"
@@ -51,6 +52,16 @@
             android:textColor="@color/colorAccent"
             android:text="@string/vote_avg_default"/>
     </LinearLayout>
+
+    <TextView
+        android:text="903"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:visibility="invisible"
+        android:id="@+id/tv_movie_id"/>
 
 
 </RelativeLayout>

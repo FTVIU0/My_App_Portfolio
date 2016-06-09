@@ -1,7 +1,6 @@
 package com.nlte.myappportfolio;
 
 import com.nlte.myappportfolio.bean.MoviesSetBean;
-import com.nlte.myappportfolio.utils.LoadMovesDate;
 
 import org.junit.Test;
 

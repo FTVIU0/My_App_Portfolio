@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -39,7 +39,7 @@ public class MoviesPosterAdapter extends BaseAdapter {
      * @param movies 电影列表
      */
 
-    ArrayList<Integer> pages = new ArrayList<Integer>();
+    ArrayList<Integer> pages = new ArrayList<>();
     public void addItem(List<MoviesSetBean.ResultsBean> movies, MoviesSetBean moviesSetBean) {
 
         if (!pages.contains(moviesSetBean.getPage())){
@@ -80,32 +80,35 @@ public class MoviesPosterAdapter extends BaseAdapter {
             convertView = View.inflate(context, R.layout.movie_item_summary, null);
             viewHolder = new ViewHolder();
 
-            viewHolder.ibMoviePoster = (ImageButton) convertView.findViewById(R.id.ib_movies_poster);
+            viewHolder.ivMoviePoster = (ImageView) convertView.findViewById(R.id.iv_movies_poster);
             viewHolder.tvMovieTitle = (TextView) convertView.findViewById(R.id.tv_movies_title);
             viewHolder.rabMovieVoteAve = (RatingBar) convertView.findViewById(R.id.rab_movies_star);
             viewHolder.tvVoteAvg = (TextView) convertView.findViewById(R.id.tv_vote_average);
+            viewHolder.tvMovieId = (TextView) convertView.findViewById(R.id.tv_movie_id);
 
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-
         Picasso.with(context)
                 .load(MoviePosterUrl + moviesResultList.get(position).getPoster_path())
-                .into(viewHolder.ibMoviePoster);
+                .into(viewHolder.ivMoviePoster);
         viewHolder.tvMovieTitle.setText(moviesResultList.get(position).getOriginal_title());
         viewHolder.rabMovieVoteAve.setRating((float) (moviesResultList.get(position).getVote_average() / 2));
-        viewHolder.tvVoteAvg.setText(String.valueOf(Math.round(moviesResultList.get(position).getVote_average() * 10) / 10.0));
+        viewHolder.tvVoteAvg.setText(String.valueOf(
+                Math.round(moviesResultList.get(position).getVote_average() * 10) / 10.0));
+        viewHolder.tvMovieId.setText(String.valueOf(moviesResultList.get(position).getId()));
 
         return convertView;
     }
 
     private static class ViewHolder {
-        ImageButton ibMoviePoster;
+        ImageView ivMoviePoster;
         TextView tvMovieTitle;
         RatingBar rabMovieVoteAve;
         TextView tvVoteAvg;
+        TextView tvMovieId;
     }
 
 }
