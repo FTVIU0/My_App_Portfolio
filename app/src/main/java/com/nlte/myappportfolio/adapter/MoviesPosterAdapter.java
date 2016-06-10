@@ -40,8 +40,12 @@ public class MoviesPosterAdapter extends BaseAdapter {
      */
 
     ArrayList<Integer> pages = new ArrayList<>();
-    public void addItem(List<MoviesSetBean.ResultsBean> movies, MoviesSetBean moviesSetBean) {
+    public void addItem(List<MoviesSetBean.ResultsBean> movies, MoviesSetBean moviesSetBean, int flag) {
 
+        if (flag == 1){
+            pages.clear();
+            moviesResultList.clear();
+        }
         if (!pages.contains(moviesSetBean.getPage())){
             pages.add(moviesSetBean.getPage());
             if (null != movies && movies.size() > 0) {
@@ -53,9 +57,6 @@ public class MoviesPosterAdapter extends BaseAdapter {
                 notifyDataSetChanged();
             }
         }
-        System.out.println(pages);
-
-
     }
 
     @Override

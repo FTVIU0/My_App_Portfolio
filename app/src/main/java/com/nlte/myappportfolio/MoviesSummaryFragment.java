@@ -29,6 +29,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 import static com.nlte.myappportfolio.utils.GetUrl.POP_MOVIES;
+import static com.nlte.myappportfolio.utils.GetUrl.TOP_RATED_MOVIES;
 import static com.nlte.myappportfolio.utils.GetUrl.getUrl;
 
 
@@ -47,6 +48,8 @@ public class MoviesSummaryFragment extends Fragment {
 
 
     private int page = 1;
+    private int mMoviesStyle;
+    private int flag;
 
     public MoviesSummaryFragment() {
         // Required empty public constructor
@@ -70,7 +73,8 @@ public class MoviesSummaryFragment extends Fragment {
         mMoviesPtrGv.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<GridView>() {
             @Override
             public void onPullDownToRefresh(PullToRefreshBase<GridView> refreshView) {
-                new FetchMoviesDataTask().execute(getUrl(POP_MOVIES, page, 0));
+                flag = 0;
+                new FetchMoviesDataTask().execute(getUrl(mMoviesStyle, page, 0));
             }
 
             @Override
@@ -83,7 +87,8 @@ public class MoviesSummaryFragment extends Fragment {
             @Override
             public void onLastItemVisible() {
                 page++;
-                new FetchMoviesDataTask().execute(getUrl(POP_MOVIES, page, 0));
+                flag = 0;
+                new FetchMoviesDataTask().execute(getUrl(mMoviesStyle, page, 0));
             }
         });
 
@@ -107,20 +112,54 @@ public class MoviesSummaryFragment extends Fragment {
             }
         });
 
+        mSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                switch (position){
+                    case 0:
+                        flag = 1;
+                        page = 1;
+                        mMoviesStyle = POP_MOVIES;
+                        new FetchMoviesDataTask().execute(getUrl(mMoviesStyle, page, 0));
+                        break;
+                    case 1:
+                        flag = 1;
+                        page = 1;
+                        mMoviesStyle = TOP_RATED_MOVIES;
+                        new FetchMoviesDataTask().execute(getUrl(mMoviesStyle, page, 0));
+                        break;
+                    default:
+                        break;
+                }
+                /*//延时加载, 实现自动刷新效果
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        mMoviesPtrGv.setRefreshing(true);
+                    }
+                }, 500);*/
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
         return view;
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
+    public void onStart() {
+        super.onStart();
         //延时加载, 实现自动刷新效果
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 mMoviesPtrGv.setRefreshing(true);
-                new FetchMoviesDataTask().execute(getUrl(POP_MOVIES, page, 0));
             }
         }, 500);
+        System.out.println("onStart");
     }
 
     //访问url抓取数据
@@ -128,8 +167,6 @@ public class MoviesSummaryFragment extends Fragment {
 
         private OkHttpClient mOkHttpClient = new OkHttpClient();
         private Gson mGson;
-
-
 
         @Override
         protected Object doInBackground(String... params) {
@@ -156,7 +193,8 @@ public class MoviesSummaryFragment extends Fragment {
             MoviesSetBean moviesSetBean = (MoviesSetBean) object;
             if (moviesSetBean != null && moviesSetBean.getResults() != null) {
 
-                mMoviesPosterAdapter.addItem(moviesSetBean.getResults(), moviesSetBean);
+                System.out.println("======  "+flag);
+                mMoviesPosterAdapter.addItem(moviesSetBean.getResults(), moviesSetBean, flag);
                 //通知刷新完成
                 mMoviesPtrGv.onRefreshComplete();
 

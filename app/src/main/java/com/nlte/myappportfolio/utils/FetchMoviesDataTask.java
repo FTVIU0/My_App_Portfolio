@@ -62,7 +62,7 @@ public class FetchMoviesDataTask extends AsyncTask<String, Void, Object> {
         MoviesSetBean moviesSetBean = (MoviesSetBean) object;
         if (moviesSetBean != null && moviesSetBean.getResults() != null) {
 
-            mMoviesPosterAdapter.addItem(moviesSetBean.getResults(), moviesSetBean);
+            mMoviesPosterAdapter.addItem(moviesSetBean.getResults(), moviesSetBean, 1);
             //通知刷新完成
             mMoviesPtrGv.onRefreshComplete();
 
